@@ -1,0 +1,226 @@
+:root {
+    --primary: #002366;
+    --secondary: #ffea00;
+    --light: #f4f7f6;
+    --dark: #333;
+    --white: #ffffff;
+    --success: #27ae60;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background-color: var(--light);
+    color: var(--dark);
+}
+
+/* --- Navigation --- */
+nav {
+    background: var(--primary);
+    color: white;
+    padding: 0 50px;
+    height: 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.logo { font-size: 24px; font-weight: bold; letter-spacing: 1px; }
+
+.nav-links { display: flex; align-items: center; height: 100%; position: relative;}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 0 15px;
+    font-weight: 500;
+    height: 75px;
+    line-height: 75px;
+    display: inline-block;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+.nav-links a:hover { color: var(--secondary); background: none !important; }
+
+/* My Bookings aur Logout ko normal link banane ke liye */
+.nav-links a.nav-btn-small, 
+.nav-links a[href="logout.php"] {
+    background: none !important;    /* Dabba (Background) khatam */
+    padding: 0 15px !important;     /* Normal Spacing */
+    height: 75px !important;        /* Navbar ki height ke barabar */
+    line-height: 75px !important;   /* Beech mein align */
+    border-radius: 0 !important;    /* Corner roundness khatam */
+    color: white !important;        /* Shuruat mein safed dikhega */
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    display: inline-block !important;
+    margin: 0 !important;           /* Extra gap khatam */
+}
+
+/* Cursor le jaane par asar (Hover Effect) */
+.nav-links a.nav-btn-small:hover, 
+.nav-links a[href="logout.php"]:hover {
+    color: var(--secondary) !important; /* Wahi yellow color jo baki menus mein hai */
+    background: none !important; /* Halka sa chamakdar asar */
+    text-decoration: none;
+}
+
+/* Sabhi admin/user links ko normal baaki links jaisa banane ke liye */
+.nav-link-normal {
+    color: white !important;
+    text-decoration: none;
+    padding: 0 15px;
+    font-weight: 500;
+    height: 75px;
+    line-height: 75px;
+    display: inline-block;
+    transition: 0.3s;
+    font-size: 14px;
+    background: none !important; /* Dabba hatane ke liye */
+}
+
+.nav-link-normal:hover {
+    color: #ffea00 !important; /* Hover karne par yellow color */
+    background: none !important; /* Hover par bhi dabba nahi banega */
+}
+
+
+
+/* Logout link ko bhi align karne ke liye */
+.nav-links a[href="logout.php"] {
+    height: auto !important;
+    line-height: normal !important;
+    margin-left: 15px;
+}
+/* Logout link ko bhi align karne ke liye */
+.nav-links a[href="logout.php"] {
+    height: auto !important;
+    line-height: normal !important;
+    margin-left: 15px;
+}
+
+
+/* --- MEGA MENU FINAL FIX --- */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 75px; /* Navbar ki height */
+    
+    /* --- CENTER LOGIC: Ye poori screen ke hisab se center karega --- */
+    position: fixed; 
+    left: 50%;
+    transform: translateX(-50%);
+    
+    /* Menu ki chautai (Width) */
+    width: 90%; 
+    max-width: 1000px; /* Isse zyada bada nahi hoga */
+    
+    background: white;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    border-top: 4px solid #ffea00;
+    padding: 30px 0;
+    z-index: 9999;
+    border-radius: 0 0 15px 15px;
+    box-sizing: border-box;
+}
+
+/* Wrapper ko columns mein divide karne ke liye */
+.mega-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 barabar columns */
+    gap: 20px;
+    padding: 0 50px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Dropdown ko base banana */
+.dropdown {
+    position: static; /* Isse dropdown-content ko poori screen ki width milegi */
+}
+
+.mega-col h3 {
+    font-size: 13px; /* Heading thodi chhoti */
+    color: #002366;
+    border-bottom: 2px solid #ffea00;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.mega-col a {
+    display: block !important;
+    color: #555 !important;
+    font-size: 12px !important; /* Destinations ke naam chhote */
+    padding: 4px 0 !important;
+    height: auto !important;
+    line-height: normal !important;
+    text-decoration: none;
+}
+
+.mega-col a:hover {
+    color: #002366 !important;
+    font-weight: 600 !important;
+    padding-left: 5px !important;
+    transition: 0.2s;
+}
+
+/* --- Hero Section --- */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80');
+    background-size: cover; background-position: center;
+    height: 500px; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white;
+}
+
+.search-box {
+    background: white; padding: 6px; border-radius: 50px; display: flex; width: 600px; margin-top: 25px; box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+}
+.search-box input { border: none; outline: none; padding: 12px 25px; width: 100%; border-radius: 50px; font-size: 16px; color: #333; }
+.search-box button { 
+    background: var(--primary); color: white; border: none; padding: 12px 30px; 
+    border-radius: 50px; cursor: pointer; font-weight: 600; transition: 0.3s;
+}
+
+/* --- Grid & Cards Price Alignment --- */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 35px; padding: 50px; }
+
+.card {
+    background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    transition: 0.4s; position: relative; cursor: pointer; border: 1px solid #eee;
+}
+.card:hover { transform: translateY(-12px); box-shadow: 0 15px 35px rgba(0,0,0,0.15); }
+
+.price-tag { 
+    font-weight: bold; 
+    color: var(--success); 
+    font-size: 16px; 
+}
+
+.duration-tag {
+    position: absolute; top: 15px; right: 15px; background: var(--secondary);
+    color: var(--primary); padding: 6px 14px; font-weight: bold; border-radius: 8px; font-size: 11px; z-index: 1;
+}
+
+.btn-main { 
+    background: var(--primary); 
+    color: white; 
+    border: none; 
+    border-radius: 6px; 
+    cursor: pointer; 
+    font-weight: 600; 
+    transition: 0.3s;
+}
+
+footer { background: var(--primary); color: white; text-align: center; padding: 60px 20px; margin-top: 60px; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .search-box { width: 90%; }
+    .mega-wrapper { grid-template-columns: 1fr 1fr; }
+}
